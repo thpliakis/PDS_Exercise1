@@ -191,15 +191,15 @@ int main(int argc, char *argv[]){
         if (s != 0)
             printf("Didn't Joined with thread \n");
 
-        printf("Joined with thread %d; returned value was %s\n",tinfo[tnum].thread_num, (char *) res);
-        free(res);      /* Free memory allocated by thread */
+        //printf("Joined with thread %d; returned value was %s\n",tinfo[tnum].thread_num, (char *) res);
+        
     }
-    pthread_attr_destroy(&attr);
-
-    free(tinfo);
-    
     gettimeofday (&endwtime, NULL);
-
+    
+    free(res);      /* Free memory allocated by thread */
+    free(tinfo);
+    pthread_attr_destroy(&attr);
+    
     for(int col = 0; col < M; col++)
         num += vector[col];
 
